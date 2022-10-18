@@ -1,14 +1,14 @@
 const conn = require('./conn')
-const Garments = require('./Garments')
+const { Garments } = require('./Garments')
+const { Brands } = require('./Brands')
+const seed = require('./seed')
 
-const seed = async() => {
-    const [ razorHoodie ] = await Promise.all([
-        Garments.create({name: 'Razor Hoodie', garmentType: 'sweater', price: 0, size: 'M', brand: 'Public Housing Skate Team' })
-    ])  
-}
+Brands.hasMany(Garments)
+Garments.belongsTo(Brands)
 
 module.exports = {
     conn, 
     Garments,
+    Brands, 
     seed
 }

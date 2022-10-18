@@ -1,6 +1,6 @@
 const { UUID, UUIDV4, STRING, FLOAT } = require('sequelize')
-const Sequelize = require('sequelize')
 const conn = require('./conn')
+const Brands = require('./Brands')
 
 const Garments = conn.define('garments', {
     id: {
@@ -25,13 +25,13 @@ const Garments = conn.define('garments', {
         type: STRING,
         allowNull: true
     }, 
-    brand: {
-        type: STRING,
+    imageUrl: {
+        type: STRING, 
         allowNull: true
-    }
+    } 
 })
 
 module.exports = {
-    Garments
+    Garments 
 }
 

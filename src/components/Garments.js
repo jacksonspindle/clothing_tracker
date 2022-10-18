@@ -1,18 +1,24 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const Garments = () => {
     const { garments } = useSelector(state => state)
     const dispatch = useDispatch()
-    console.log(garments)
+
     return(
-        <div>
+        <div className='garment-container'>
             <h1>Garments</h1>
-            <ul>
+            <ul className='garment'>
                 {
                     garments.map(garment => {
                         return(
-                            <li key={garment.id}>{garment.name}</li>
+                            <div   key={garment.id}>
+                               <Link className='' to={`/garments/${garment.id}`}>
+                                    <li >{garment.name}</li>
+                                    <img className='garment-image-small' src={`../../assets/${garment.imageUrl}`}></img>
+                                </Link>
+                            </div>
                         )
                     })
                 }
