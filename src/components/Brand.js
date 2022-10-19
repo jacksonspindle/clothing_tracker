@@ -9,6 +9,9 @@ const Brand = () => {
 
     const brand = brands.filter(brand => brand.id === id)
     const garment = garments.filter(garment => garment.brandId === id)
+    const garmentOwned = garment.filter(garment => garment.status === 'owned')
+    const garmentWished = garment.filter(garment => garment.status === 'wishlist')
+    const garmentsSold = garment.filter(garment => garment.status === 'sold')
 
     return (
         <div className="brand-container">
@@ -29,9 +32,31 @@ const Brand = () => {
 
             <h3>Garments You Own:</h3>
             <div className="brand-garment-container">
-                {garment.map(garment => {
-                        console.log(garment.imageUrl.includes('http'))
+                {garmentOwned.map(garment => {
+                    return(
+                       <Link key={garment.id} to={`/garments/${garment.id}`}>
+                            <li className="center-text">{garment.name}</li>
+                            <img className="garment-image-small" src={`../../assets/${garment.imageUrl}`}></img>
+                        </Link>
+                    )
+                })}
+            </div>
 
+            <h3>Garments You Want:</h3>
+            <div className="brand-garment-container">
+                {garmentWished.map(garment => {
+                    return(
+                       <Link key={garment.id} to={`/garments/${garment.id}`}>
+                            <li className="center-text">{garment.name}</li>
+                            <img className="garment-image-small" src={`../../assets/${garment.imageUrl}`}></img>
+                        </Link>
+                    )
+                })}
+            </div>
+
+            <h3>Garments You Sold:</h3>
+            <div className="brand-garment-container">
+                {garmentsSold.map(garment => {
                     return(
                        <Link key={garment.id} to={`/garments/${garment.id}`}>
                             <li className="center-text">{garment.name}</li>
