@@ -6,7 +6,6 @@ const Brands = () => {
     const { brands } = useSelector(state => state)
     return(
         <div>
-            <h1>Brands</h1>
             <ul  className="brands-container">
                 { 
                     brands.map(brand => {

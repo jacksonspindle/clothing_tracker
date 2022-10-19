@@ -11,11 +11,11 @@ const seed = async() => {
     ]) 
 
     const [ razorHoodie, erdPants, everdayCamo, kevinBradleyGanesh, contraband ] = await Promise.all([
-        Garments.create({name: 'Razor Hoodie', garmentType: 'sweater', price: 155, size: 'M', imageUrl: 'razorHoodie.png', brandId: publicHousingSkateTeam.id }),
-        Garments.create({name: 'ERD Pants', garmentType: 'pant', price: 400, size: 'S', imageUrl: 'erdPants.png', brandId: erd.id }),
-        Garments.create({name: 'Everyday Camo Jacket', garmentType: 'jacket', price: 110, size: 'L', imageUrl: 'everydayCamoJacket.png', brandId: fa.id }),
-        Garments.create({name: 'Kevin Bradley Ganesh Longsleeve', garmentType: 'shirt', price: 47, size: 'L', imageUrl: 'KevinBrandleyLongSleeve.png', brandId: fa.id }),
-        Garments.create({name: 'Contraband Longsleeve', garmentType: 'shirt', price: 27, size: 'L', imageUrl: 'contrabandBronze.png', brandId: bronze56k.id }),
+        Garments.create({name: 'Razor Hoodie', garmentType: 'sweater', price: 155, size: 'M', imageUrl: 'razorHoodie.png', brandId: publicHousingSkateTeam.id, status: 'wishlist', state: 'physical' }),
+        Garments.create({name: 'ERD Pants', garmentType: 'pant', price: 400, size: 'S', imageUrl: 'erdPants.png', brandId: erd.id, status: 'created', state: 'physical' }),
+        Garments.create({name: 'Everyday Camo Jacket', garmentType: 'jacket', price: 110, size: 'L', imageUrl: 'everydayCamoJacket.png', brandId: fa.id, status: 'owned', state: 'physical' }),
+        Garments.create({name: 'Kevin Bradley Ganesh Longsleeve', garmentType: 'shirt', price: 47, size: 'L', imageUrl: 'KevinBrandleyLongSleeve.png', brandId: fa.id, status: 'sold', state: 'physical' }),
+        Garments.create({name: 'Contraband Longsleeve', garmentType: 'shirt', price: 27, size: 'L', imageUrl: 'contrabandBronze.png', brandId: bronze56k.id, status: 'sold', state: 'digital' }),
     ])  
 }
 

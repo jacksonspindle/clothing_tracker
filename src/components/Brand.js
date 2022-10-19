@@ -11,13 +11,13 @@ const Brand = () => {
     const garment = garments.filter(garment => garment.brandId === id)
 
     return (
-        <div>
+        <div className="brand-container">
             {
             brand && 
                 <div >
                     {brand.map(brand => {
                         return (
-                            <div key={brand.id}>
+                            <div className="flex-box-centered" key={brand.id}>
                                 <h1>{brand.name}</h1>
                                 <img className="brand-image-large" src={(brand.imageUrl.includes('http')) ? `${brand.imageUrl}` : `../../assets/${brand.imageUrl}`}></img>
                             </div>
@@ -28,13 +28,13 @@ const Brand = () => {
             }
 
             <h3>Garments You Own:</h3>
-            <div>
+            <div className="brand-garment-container">
                 {garment.map(garment => {
                         console.log(garment.imageUrl.includes('http'))
 
                     return(
                        <Link key={garment.id} to={`/garments/${garment.id}`}>
-                            <li >{garment.name}</li>
+                            <li className="center-text">{garment.name}</li>
                             <img className="garment-image-small" src={`../../assets/${garment.imageUrl}`}></img>
                         </Link>
                     )

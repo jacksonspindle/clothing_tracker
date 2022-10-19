@@ -1,17 +1,16 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
-const Garments = () => {
+const DigitalGarments = () => {
     const { garments } = useSelector(state => state)
-    const dispatch = useDispatch()
-
+    const garment = garments.filter(garment => garment.state === 'digital')
     return(
-        <div className='garment-container'>
-            <ul className='garment'>
+        <div className="garment-container">
+            <ul className="garment">
                 {
-                    garments.map(garment => {
-                        return(
+                    garment.map(garment => {
+                        return (
                             <div   key={garment.id}>
                                <Link className='' to={`/garments/${garment.id}`}>
                                     <li >{garment.name}</li>
@@ -26,4 +25,4 @@ const Garments = () => {
     )
 }
 
-export default Garments
+export default DigitalGarments

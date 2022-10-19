@@ -9,9 +9,8 @@ const Garment = () => {
     const garment = garments.filter(garment => garment.id === id)
     const garmentId = garment.find(garment => garment.id === id)
     const brand = brands.filter(brand => brand.id === garmentId.brandId)
-    console.log(garmentId)
     return (
-        <div>
+        <div className="garment-container">
             {
             garment &&
                 <div>
@@ -25,13 +24,19 @@ const Garment = () => {
                                     {
                                         brand.map(brand => {
                                             return(
-                                                <p key={brand.id}>
-                                                     Brand:
-                                                    <Link to={`/brands/${brand.id}`} >{brand.name}</Link>
-                                                </p>
+                                                <ul key={brand.id}>
+                                                    <li >
+                                                        <em> Brand: </em>
+                                                        <Link to={`/brands/${brand.id}`} >{brand.name}</Link>
+                                                    </li>
+                                                </ul>
                                             )
                                         })
                                     }
+                                    <li>{garment.garmentType}</li>
+                                    <li>${garment.price}</li>
+                                    <li>Size: {garment.size}</li>
+                                    <li>Status: <Link to={`/garments/${garment.status}`}>  {garment.status}</Link></li>
                                 </div>
                             )
                         })

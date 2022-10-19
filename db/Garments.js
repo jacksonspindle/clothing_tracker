@@ -28,7 +28,20 @@ const Garments = conn.define('garments', {
     imageUrl: {
         type: STRING, 
         allowNull: true
-    } 
+    }, 
+    status: {
+        type: STRING, 
+        validate: {
+            isIn: [['wishlist', 'owned', 'sold', 'created']]
+        }
+    },
+    state: {
+        type: STRING,
+        validate: {
+            isIn: [['physical', 'digital', 'phygital']]
+        }
+    }
+    
 })
 
 module.exports = {

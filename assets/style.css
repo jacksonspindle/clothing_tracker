@@ -12,6 +12,12 @@ h1, h2, h3 {
     text-align: center;
 }
 
+a {
+    text-decoration: underline;
+    text-decoration-color: yellow;
+    color: white
+}
+
 
 .nav {
     display: flex;
@@ -22,6 +28,7 @@ h1, h2, h3 {
 
 .nav a {
     color: white;
+    text-decoration-color: white;
     font-size: 60px;
 }
 
@@ -66,8 +73,65 @@ h1, h2, h3 {
     list-style-type: none;
     flex-direction: column;
     font-size: 50px;
+    /* margin: 0; */
+    padding: 0%;
 }
 
 .brand-name {
     display: inline;
+}
+
+.garment-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.garment-container div li {
+    text-align: center;   
+}
+
+.garment-container ul {
+    padding: 0%;
+}
+
+.garment-container div ul li {
+    text-align: center;
+    font-size: 15px;
+    list-style-type: none;
+}
+
+.brand-container{
+    margin-top: 2rem;
+}
+
+.brand-garment-container{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+
+}
+
+
+.center-text{
+    text-align: center;
+}
+
+.flex-box-centered{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 50px;
+    margin-top: 3rem;
+}
+
+.home-container a {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: yellow;
 }
