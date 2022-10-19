@@ -12,6 +12,7 @@ import SoldGarments from './components/SoldGarments'
 import OwnedGarments from './components/OwnedGarments'
 import CreatedGarments from './components/CreatedGarments'
 import DigitalGarments from './components/DigitalGarments'
+import AddGarment from './components/AddGarment'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -39,6 +40,7 @@ const App = () => {
                 <Route path='/garments/sold' element={<SoldGarments/>}></Route>
                 <Route path='/garments/created' element={<CreatedGarments/>}></Route>
                 <Route path='/garments/:id' element={<Garment/>}></Route>
+                <Route path='/garments/create' element={<AddGarment/>}></Route>
                 <Route path='/brands' element={<Brands/>}></Route>
                 <Route path='/brands/:id' element={<Brand/>}></Route>
             </Routes>

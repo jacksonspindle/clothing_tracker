@@ -20,6 +20,14 @@ app.get('/api/garments', async(req, res, next) => {
     }
 })
 
+app.post('/api/garments', async(req, res, next) => {
+    try {
+        res.sendStatus(204).send(await Garments.create(res.body))
+    } catch (ex) {
+        console.log(ex)
+    }
+})
+
 app.get('/api/brands', async(req, res, next) => {
     try {
          Brands.findAll()

@@ -15,7 +15,6 @@ const Garments = conn.define('garments', {
     },
     garmentType: {
             type: STRING, 
-            allowNull: false 
         },
     price: {
         type: FLOAT, 

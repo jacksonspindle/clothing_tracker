@@ -8,6 +8,9 @@ const garments = (state = [], action) => {
     if(action.type === 'SET_GARMENTS') {
         return action.garments
     }
+    if(action.type === 'ADD_GARMENT') {
+        return [...state, action.garment]
+    }
     return state
 }
 
@@ -27,6 +30,13 @@ const _setGarments = garments => {
     }
 }
 
+const _addGarment = garment => {
+    return {
+        type: 'ADD_GARMENT', 
+        garment 
+    }
+}
+
 const _setBrands = brands => {
     return {
         type: 'SET_BRANDS', 
@@ -38,6 +48,13 @@ export const setGarments = () => {
     return async(dispatch) => {
         const response = await axios.get('/api/garments')
         dispatch(_setGarments(response.data))
+    }
+}
+
+export const addGarment = (garment) => {
+    return async(dispatch) => {
+        const response = await axios.post('/api/garments', garment)
+        dispatch(_addGarment(garment))
     }
 }
 
