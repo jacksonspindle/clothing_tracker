@@ -36,7 +36,7 @@ const Brand = () => {
                     return(
                        <Link key={garment.id} to={`/garments/${garment.id}`}>
                             <li className="center-text">{garment.name}</li>
-                            <img className="garment-image-small" src={`../../assets/${garment.imageUrl}`}></img>
+                            <img className="garment-image-small" src={(garment.imageUrl.includes('http')) ? `${garment.imageUrl}` : `../../assets/${garment.imageUrl}`}></img>
                         </Link>
                     )
                 })}
@@ -48,7 +48,7 @@ const Brand = () => {
                     return(
                        <Link key={garment.id} to={`/garments/${garment.id}`}>
                             <li className="center-text">{garment.name}</li>
-                            <img className="garment-image-small" src={`../../assets/${garment.imageUrl}`}></img>
+                            <img className="garment-image-small" src={(garment.imageUrl.includes('http')) ? `${garment.imageUrl}` : `../../assets/${garment.imageUrl}`}></img>
                         </Link>
                     )
                 })}
@@ -60,7 +60,7 @@ const Brand = () => {
                     return(
                        <Link key={garment.id} to={`/garments/${garment.id}`}>
                             <li className="center-text">{garment.name}</li>
-                            <img className="garment-image-small" src={`../../assets/${garment.imageUrl}`}></img>
+                            <img className="garment-image-small" src={(garment.imageUrl.includes('http')) ? `${garment.imageUrl}` : `../../assets/${garment.imageUrl}`}></img>
                         </Link>
                     )
                 })}

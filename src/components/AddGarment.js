@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { addGarment } from "../store";
 
-const CreateGarment = () => {
+const AddGarment = () => {
     const { garments, brands } = useSelector(state => state)
     const dispatch = useDispatch()
 
     const [name, setName] = useState('')
-    const [brandId, setBrandId] = useState('')
-    const [garmentType, setGarmentType] = useState('')
+    const [brandId, setBrandId] = useState('no brand specified')
+    const [garmentType, setGarmentType] = useState('shirt')
     const [price, setPrice] = useState(0)
     const [imageUrl, setImageUrl] = useState('')
-    const [size, setSize] = useState('')
-    const [status, setStatus] = useState('')
-    const [state, setState] = useState('')
+    const [size, setSize] = useState('S')
+    const [status, setStatus] = useState('owned')
+    const [state, setState] = useState('physical')
 
     const [newGarment, setNewGarment] = useState({})
 
@@ -25,8 +25,8 @@ const CreateGarment = () => {
 
     return(
         <div>
-            <form onSubmit={submit}>
-                <input placeholder="garment name..." onChange={(ev) => {
+            <form className="add-garment-form" onSubmit={submit}>
+                <input id="name" placeholder="garment name..." onChange={(ev) => {
                     setName(ev.target.value)
                     setNewGarment({
                         name, 
@@ -39,6 +39,7 @@ const CreateGarment = () => {
                         size
                     })
                 }}></input>
+                <label htmlFor="name">Name</label>
                 <input placeholder="price..." onChange={(ev) => {
                     setPrice(ev.target.value)
                     setNewGarment({
@@ -52,7 +53,8 @@ const CreateGarment = () => {
                         size
                     })
                 }}></input>
-                <input placeholder="image url..." onChange={(ev) => {
+                <label htmlFor="name">Price</label>
+                <input placeholder="image url..."  onChange={(ev) => {
                     setImageUrl(ev.target.value)
                     setNewGarment({
                         name, 
@@ -65,6 +67,7 @@ const CreateGarment = () => {
                         size
                     })
                 }}></input>
+                <label htmlFor="name">Image URL</label>
                 <select placeholder="status" onChange={(ev) => {
                     setStatus(ev.target.value)
                     setNewGarment({
@@ -83,6 +86,7 @@ const CreateGarment = () => {
                     <option>wishlist</option>
                     <option>created</option>
                 </select>
+                <label htmlFor="name">Status</label>
                 <select placeholder="garment type" onChange={(ev) => {
                     setGarmentType(ev.target.value)
                     setNewGarment({
@@ -102,7 +106,8 @@ const CreateGarment = () => {
                     <option>jacket</option>
                     <option>shoe</option>
                 </select>
-                <select placeholder="size" onChange={(ev) => {
+                <label htmlFor="name">Garment Type</label>
+                <select placeholder="size"onChange={(ev) => {
                     setSize(ev.target.value)
                     setNewGarment({
                         name, 
@@ -120,7 +125,8 @@ const CreateGarment = () => {
                     <option>L</option>
                     <option>XL</option>
                 </select>
-                <select placeholder="state" onChange={(ev) => {
+                <label htmlFor="name">Size</label>
+                <select placeholder="state"  onChange={(ev) => {
                     setState(ev.target.value)
                     setNewGarment({
                         name, 
@@ -137,14 +143,16 @@ const CreateGarment = () => {
                     <option>digital</option>
                     <option>phygital</option>
                 </select>
-                <select placeholder="brand" onChange={(ev) => {
-                    setBrandId(ev.target.value)
-                    const _brandId = brands.find(brand => brand.name === ev.target.value)
-                    setBrandId(_brandId)
-                    console.log(_brandId)
+                <label htmlFor="name">State</label>
+                <select placeholder="brand"  onChange={(ev) => {
+                    // setBrandId(ev.target.value)
+                    const test = brands.find(brand => brand.name === ev.target.value).id
+                   setBrandId(test)
+                    // setBrandId(_brandId)
+                    console.log(`you set the brand to ${test}`)
                     setNewGarment({
                         name, 
-                        brandId: _brandId.id,
+                        brandId: test,
                         garmentType, 
                         price, 
                         imageUrl, 
@@ -152,7 +160,6 @@ const CreateGarment = () => {
                         state,
                         size
                     })
-                    console.log(newGarment)
                 }}>
                     {
                         brands.map(brand => {
@@ -163,10 +170,11 @@ const CreateGarment = () => {
                     }
                     <option>new brand</option>
                 </select>
-                <button>Add</button>
+                <label htmlFor="name">Brand</label>
+                <button className="form-button">Add</button>
             </form>
         </div>
     )
 }
 
-export default CreateGarment
+export default AddGarment

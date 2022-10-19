@@ -9,6 +9,8 @@ const garments = (state = [], action) => {
         return action.garments
     }
     if(action.type === 'ADD_GARMENT') {
+        console.log(action.garment)
+        console.log(state)
         return [...state, action.garment]
     }
     return state
@@ -54,7 +56,7 @@ export const setGarments = () => {
 export const addGarment = (garment) => {
     return async(dispatch) => {
         const response = await axios.post('/api/garments', garment)
-        dispatch(_addGarment(garment))
+        dispatch(_addGarment(response.data))
     }
 }
 

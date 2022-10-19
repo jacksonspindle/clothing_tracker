@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Garments = () => {
     const { garments } = useSelector(state => state)
     const dispatch = useDispatch()
-
+    
     return(
         <div className='garment-container'>
             <ul className='garment'>
@@ -15,7 +15,7 @@ const Garments = () => {
                             <div   key={garment.id}>
                                <Link className='' to={`/garments/${garment.id}`}>
                                     <li >{garment.name}</li>
-                                    <img className='garment-image-small' src={`../../assets/${garment.imageUrl}`}></img>
+                                    <img className='garment-image-small' src={(garment.imageUrl.includes('http')) ? `${garment.imageUrl}` : `../../assets/${garment.imageUrl}`}></img>
                                 </Link>
                             </div>
                         )

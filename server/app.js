@@ -22,9 +22,9 @@ app.get('/api/garments', async(req, res, next) => {
 
 app.post('/api/garments', async(req, res, next) => {
     try {
-        res.sendStatus(204).send(await Garments.create(res.body))
+        res.send(await Garments.create(req.body))
     } catch (ex) {
-        console.log(ex)
+        next(ex)
     }
 })
 

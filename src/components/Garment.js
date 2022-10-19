@@ -9,6 +9,7 @@ const Garment = () => {
     const garment = garments.filter(garment => garment.id === id)
     const garmentId = garment.find(garment => garment.id === id)
     const brand = brands.filter(brand => brand.id === garmentId.brandId)
+    console.log(garmentId)
     return (
         <div className="garment-container">
             {
@@ -19,7 +20,7 @@ const Garment = () => {
                             return (
                                 <div key={garment.id}>
                                     <li >{garment.name}</li>
-                                    <img src={`../../assets/${garment.imageUrl}`} className='garment-image-small'></img>
+                                    <img src={(garment.imageUrl.includes('http')) ? `${garment.imageUrl}` : `../../assets/${garment.imageUrl}`} className='garment-image-small'></img>
                                     
                                     {
                                         brand.map(brand => {
