@@ -1,11 +1,13 @@
 import React from "react";
-import { useParams, Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-
+import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteBrand } from "../store";
 
 const Brand = () => {
     const { brands, garments } = useSelector(state => state)
     const { id } = useParams()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const brand = brands.filter(brand => brand.id === id)
     const garment = garments.filter(garment => garment.brandId === id)
@@ -20,15 +22,25 @@ const Brand = () => {
                 <div >
                     {brand.map(brand => {
                         return (
-                            <div className="flex-box-centered" key={brand.id}>
-                                <h1>{brand.name}</h1>
-                                <img className="brand-image-large" src={(brand.imageUrl.includes('http')) ? `${brand.imageUrl}` : `../../assets/${brand.imageUrl}`}></img>
+                            <div key={brand.id}>
+                                <div className="flex-box-centered" >
+                                    <h1>{brand.name}</h1>
+                                    <img className="brand-image-large" src={(brand.imageUrl.includes('http')) ? `${brand.imageUrl}` : `../../assets/${brand.imageUrl}`}></img>
+                                </div>
+                                <Link to={`/brands/edit/${id}`}><button className="form-button" >Edit Brand</button></Link>
+                                <button className="delete-button" onClick={() => {
+                                        dispatch(deleteBrand(brand, navigate))
+                                    }}>Delete Brand
+                                </button> 
                             </div>
                         )
+                        
                     })}
                 </div>
                 
             }
+
+            
 
             <h3>Garments You Own:</h3>
             <div className="brand-garment-container">

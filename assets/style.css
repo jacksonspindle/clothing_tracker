@@ -169,3 +169,13 @@ a {
     background-color: yellow;
     border: none;
 }
+
+.delete-button{
+    width: 316px;
+    height: 40px;
+    border-radius: 1rem;
+    background-color: red;
+    border: none;
+    color: white;
+    margin-top: 1rem;
+}

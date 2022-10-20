@@ -13,6 +13,9 @@ import OwnedGarments from './components/OwnedGarments'
 import CreatedGarments from './components/CreatedGarments'
 import DigitalGarments from './components/DigitalGarments'
 import AddGarment from './components/AddGarment'
+import EditGarment from './components/EditGarment'
+import AddBrand from './components/AddBrand'
+import EditBrand from './components/EditBrand'
 
 const App = () => {
     const dispatch = useDispatch()
@@ -41,8 +44,11 @@ const App = () => {
                 <Route path='/garments/created' element={<CreatedGarments/>}></Route>
                 <Route path='/garments/:id' element={<Garment/>}></Route>
                 <Route path='/garments/create' element={<AddGarment/>}></Route>
+                <Route path='/garments/edit/:id' element={<EditGarment/>}></Route>
                 <Route path='/brands' element={<Brands/>}></Route>
                 <Route path='/brands/:id' element={<Brand/>}></Route>
+                <Route path='/brands/create' element={<AddBrand/>}></Route>
+                <Route path='/brands/edit/:id' element={<EditBrand/>}></Route>
             </Routes>
         </div>
     )

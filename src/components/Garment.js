@@ -1,15 +1,18 @@
 import React from "react";
-import { useSelector } from 'react-redux'
-import { useParams, Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams, Link, useNavigate } from 'react-router-dom'
+import { deleteGarment } from "../store";
 
 const Garment = () => {
     const { garments, brands } = useSelector(state => state)
     const { id } = useParams()
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const garment = garments.filter(garment => garment.id === id)
     const garmentId = garment.find(garment => garment.id === id)
     const brand = brands.filter(brand => brand.id === garmentId.brandId)
-    console.log(garmentId)
+
     return (
         <div className="garment-container">
             {
@@ -38,12 +41,26 @@ const Garment = () => {
                                     <li>${garment.price}</li>
                                     <li>Size: {garment.size}</li>
                                     <li>Status: <Link to={`/garments/${garment.status}`}>  {garment.status}</Link></li>
+                                    <br></br> 
+                                   <Link to={`/garments/edit/${id}`}><button className="form-button" >Edit Garment
+                                    </button> </Link>
+                                     <br></br> 
+                                    <button className="delete-button" onClick={() => {
+                                            dispatch(deleteGarment(garment, navigate))
+                                        }}>Delete Garment
+                                    </button> 
                                 </div>
                             )
                         })
                     }
+                    
+                        
+                    
                 </div>
+                
             }
+                                  
+
         </div>
     )
 }
