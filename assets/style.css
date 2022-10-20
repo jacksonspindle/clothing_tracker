@@ -166,16 +166,78 @@ a {
     width: 316px;
     height: 40px;
     border-radius: 1rem;
+    background-color: black;
+    border: 2px solid yellow;
+    color: white;
+    margin-top: 1rem;
+    transition: .5s all;
+}
+
+.form-button:hover {
     background-color: yellow;
-    border: none;
+    color: black;
+    cursor: pointer;
 }
 
 .delete-button{
     width: 316px;
     height: 40px;
     border-radius: 1rem;
-    background-color: red;
-    border: none;
+    background-color: black;
+    border: 2px solid red;
     color: white;
     margin-top: 1rem;
+    transition: .5s all;
+}
+
+.delete-button:hover {
+    background-color: red;
+    color: black;
+    cursor: pointer;
+}
+
+.add-button{
+    width: 216px;
+    height: 40px;
+    border-radius: 1rem;
+    background-color: black;
+    border: 2px solid yellow;
+    color: white;
+    margin-top: 1rem;
+    transition: .5s all;
+}
+
+.add-button:hover{
+    background-color: yellow;
+    color: black;
+    cursor: pointer;
+}
+
+.create-button-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.brand-buttons-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+
+
+@media (max-width: 720px) {
+    .edit-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 }

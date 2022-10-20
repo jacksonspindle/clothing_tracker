@@ -37,7 +37,8 @@ const EditGarment = () => {
     } 
     
     return(
-         <div>
+         <div className="edit-container">
+            <img src={(garment.imageUrl.includes('http')) ? `${garment.imageUrl}` : `../../assets/${garment.imageUrl}`} className='garment-image-small'></img>
             <form className="add-garment-form" onSubmit={submit}>
                 <input id="name" placeholder={garment.name} onChange={(ev) => {
                     setName(ev.target.value)
@@ -106,7 +107,7 @@ const EditGarment = () => {
                     <option>new brand</option>
                 </select>
                 <label htmlFor="name">Brand</label>
-                <button className="form-button">Add</button>
+                <button className="form-button">Save Changes</button>
             </form>
         </div>
     )

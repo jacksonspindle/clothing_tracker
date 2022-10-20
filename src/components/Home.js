@@ -9,8 +9,10 @@ const Home = () => {
             <Link to='/garments/sold'>Sold Garments</Link>
             <Link to='/garments/created'>Created Garments</Link>
             <Link to='/garments/digital'>Digital Garments</Link>
-            <Link to='/garments/create'><button>Add Garment</button></Link>
-            <Link to='/brands/create'><button>Add Brand</button></Link>
+            <div className="create-button-container">
+                <Link to='/garments/create'><button className="add-button">Add Garment</button></Link>
+                <Link to='/brands/create'><button className="add-button">Add Brand</button></Link>
+            </div>
         </div>
     )
 }

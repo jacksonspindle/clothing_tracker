@@ -27,11 +27,13 @@ const Brand = () => {
                                     <h1>{brand.name}</h1>
                                     <img className="brand-image-large" src={(brand.imageUrl.includes('http')) ? `${brand.imageUrl}` : `../../assets/${brand.imageUrl}`}></img>
                                 </div>
-                                <Link to={`/brands/edit/${id}`}><button className="form-button" >Edit Brand</button></Link>
-                                <button className="delete-button" onClick={() => {
-                                        dispatch(deleteBrand(brand, navigate))
-                                    }}>Delete Brand
-                                </button> 
+                                <div className="brand-buttons-container">
+                                    <Link to={`/brands/edit/${id}`}><button className="form-button" >Edit Brand</button></Link>
+                                    <button className="delete-button" onClick={() => {
+                                            dispatch(deleteBrand(brand, navigate))
+                                        }}>Delete Brand
+                                    </button> 
+                                </div>
                             </div>
                         )
                         

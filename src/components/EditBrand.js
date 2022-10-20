@@ -37,7 +37,7 @@ const EditBrand = () => {
                     setImageUrl(ev.target.value)
                 }}></input>
                 <label htmlFor="imageUrl">Image URL</label>
-                <button className="form-button">Add</button>
+                <button className="form-button">Save Changes</button>
             </form>
         </div>
     )
