@@ -231,6 +231,43 @@ a {
     margin-top: 3rem;
 }
 
+.garment-filter-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: center;
+}
+
+
+.garment-filter-menu {
+display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.garment-filter-menu ul {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    align-items: center;
+    list-style-type: none;
+    padding: 0%;
+}
+
+.garment-filter-menu ul li {
+    cursor: pointer;
+}
+
+.garment-filter-menu ul li:hover {
+    cursor: pointer;
+    color: yellow;
+}
+
+.filter-label{
+    color: yellow;
+}
 
 
 @media (max-width: 720px) {
@@ -240,4 +277,6 @@ a {
             align-items: center;
             justify-content: center;
         }
+
 }
+
